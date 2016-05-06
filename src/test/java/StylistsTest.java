@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 public class StylistsTest {
 
-  // @Rule
-  // public DatabaseRule database = new DatabaseRule();
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
 
   @Test
   public void stylist_instantiatesCorrectly() {
@@ -17,6 +17,9 @@ public class StylistsTest {
     Stylist newStylist = new Stylist("Robert");
     assertEquals("Robert", newStylist.getName());
   }
-  
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Stylist.all().size(), 0);
+  }
 
 }
