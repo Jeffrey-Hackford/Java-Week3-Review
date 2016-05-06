@@ -27,5 +27,13 @@ public class StylistsTest {
     Stylist secondStylist = new Stylist("Robert");
     assertTrue(firstStylist.equals(secondStylist));
   }
+  @Test
+  public void save_savesInstanceToDBWithId_True() {
+    Stylist newStylist = new Stylist("Roberto");
+    newStylist.save();
+    Stylist savedStylist = Stylist.all().get(0);
+    assertEquals(newStylist.getId(), savedStylist.getId());
+  }
+
 
 }
