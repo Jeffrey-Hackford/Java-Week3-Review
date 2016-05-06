@@ -25,4 +25,15 @@ public class Stylist {
     }
   }
 
+  @Override
+  public boolean equals(Object stylist) {
+    if (!(stylist instanceof Stylist)) {
+      return false;
+    } else {
+      Stylist newStylist = (Stylist) stylist;
+      return this.getName().equals(newStylist.getName()) &&
+             this.getId() == newStylist.getId();
+    }
+  }
+
 }

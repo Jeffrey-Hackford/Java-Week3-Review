@@ -21,5 +21,11 @@ public class StylistsTest {
   public void all_emptyAtFirst() {
     assertEquals(Stylist.all().size(), 0);
   }
+  @Test
+  public void equals_returnsTrueIfBothNamesAreTheSame_True() {
+    Stylist firstStylist = new Stylist("Robert");
+    Stylist secondStylist = new Stylist("Robert");
+    assertTrue(firstStylist.equals(secondStylist));
+  }
 
 }
