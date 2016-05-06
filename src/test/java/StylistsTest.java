@@ -14,8 +14,8 @@ public class StylistsTest {
   }
   @Test
   public void getName_returnsNameOfStylist_String() {
-    Stylist newStylist = new Stylist("Robert");
-    assertEquals("Robert", newStylist.getName());
+    Stylist newStylist = new Stylist("Bobby");
+    assertEquals("Bobby", newStylist.getName());
   }
   @Test
   public void all_emptyAtFirst() {
@@ -33,6 +33,13 @@ public class StylistsTest {
     newStylist.save();
     Stylist savedStylist = Stylist.all().get(0);
     assertEquals(newStylist.getId(), savedStylist.getId());
+  }
+  @Test
+  public void find_returnsCorrectInstanceOfStylist_True() {
+    Stylist newStylist = new Stylist("Roberto Jr/Sr II");
+    newStylist.save();
+    Stylist foundStylist = Stylist.find(newStylist.getId());
+    assertTrue(newStylist.equals(foundStylist));
   }
 
 
