@@ -1,0 +1,29 @@
+<h1 class="jumbotron">Here is a list of Stylists:</h1>
+
+<ul>
+  #foreach ($stylist in $stylists)
+    <li><a class="btn btn-info" href="/addClient/$stylist.getId()">$stylist.getName()</a></li>
+  #end
+</ul>
+
+<div class="row">
+  <hr class="style18 col-xs-6 col-xs-offset-3">
+</div>
+
+  #if ($addedNewStylist)
+
+  <h3 class="middle">New Stylist Added Successfully</h3>
+
+  #end
+
+  <!-- #if ($removedStylist)
+
+  <h3 class="middle">Stylist Removed Successfully</h3>
+
+  #end -->
+
+<div class="center">
+  <a class="btn btn-primary" href="/listClients">View Clients</a>
+  <a class="btn btn-primary" href="/addStylist">Add another Stylist</a>
+  <a class="btn btn-primary" href="/">Go Home </a>
+</div>

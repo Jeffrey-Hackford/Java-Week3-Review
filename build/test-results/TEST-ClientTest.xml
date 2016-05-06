@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ClientTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-05-06T17:27:12" hostname="users-MacBook-Pro.local" time="0.715">
+<testsuite name="ClientTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-05-06T18:31:41" hostname="users-MacBook-Pro.local" time="0.726">
   <properties/>
-  <testcase name="client_instantiatesCorrectly" classname="ClientTest" time="0.514"/>
+  <testcase name="client_instantiatesCorrectly" classname="ClientTest" time="0.51"/>
   <testcase name="equals_returnsTrueIfBothNamesAreTheSame_True" classname="ClientTest" time="0.011"/>
-  <testcase name="find_returnsCorrectInstanceOfClient_True" classname="ClientTest" time="0.12"/>
-  <testcase name="all_emptyAtFirst" classname="ClientTest" time="0.018"/>
-  <testcase name="getName_returnsNameOfClient_String" classname="ClientTest" time="0.011"/>
-  <testcase name="save_savesClients_2" classname="ClientTest" time="0.041"/>
+  <testcase name="find_returnsCorrectInstanceOfClient_True" classname="ClientTest" time="0.128"/>
+  <testcase name="all_emptyAtFirst" classname="ClientTest" time="0.02"/>
+  <testcase name="getName_returnsNameOfClient_String" classname="ClientTest" time="0.01"/>
+  <testcase name="save_savesClients_2" classname="ClientTest" time="0.042"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
