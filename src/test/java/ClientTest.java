@@ -11,4 +11,34 @@ public class ClientTest {
     Client newClient = new Client("William", 1);
     assertEquals(true, newClient instanceof Client);
   }
+  @Test
+  public void getName_returnsNameOfClient_String() {
+    Client newClient = new Client("Will", 1);
+    assertEquals("Will", newClient.getName());
+  }
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Client.all().size(), 0);
+  }
+  @Test
+  public void equals_returnsTrueIfBothNamesAreTheSame_True() {
+    Client firstClient = new Client("Bill", 1);
+    Client secondClient = new Client("Bill", 1);
+    assertTrue(firstClient.equals(secondClient));
+  }
+  @Test
+  public void save_savesClients_2() {
+    Client firstClient = new Client("Billy", 1);
+    Client secondClient = new Client("Billiam", 1);
+    firstClient.save();
+    secondClient.save();
+    assertEquals(Client.all().size(), 2);
+  }
+  @Test
+  public void find_returnsCorrectInstanceOfClient_True() {
+    Client newClient = new Client("Willy", 1);
+    newClient.save();
+    Client foundClient = Client.find(newClient.getId());
+    assertTrue(newClient.equals(foundClient));
+  }
 }
