@@ -41,6 +41,4 @@ public class StylistsTest {
     Stylist foundStylist = Stylist.find(newStylist.getId());
     assertTrue(newStylist.equals(foundStylist));
   }
-
-
 }

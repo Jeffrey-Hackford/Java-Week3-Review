@@ -9,11 +9,9 @@ public class Stylist {
   public Stylist(String name) {
     this.name = name;
   }
-
   public String getName() {
     return name;
   }
-
   public int getId() {
     return id;
   }
@@ -24,7 +22,6 @@ public class Stylist {
       return con.createQuery(sql).executeAndFetch(Stylist.class);
     }
   }
-
   @Override
   public boolean equals(Object stylist) {
     if (!(stylist instanceof Stylist)) {
@@ -50,6 +47,12 @@ public class Stylist {
       return con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Stylist.class);
+    }
+  }
+  public List<Client> allStylistClients() {
+    String sql = "SELECT id, name, FROM clients WHERE stylist_id=:id";
+    try (Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).addParameter("id", id).executeAndFetch(Client.class);
     }
   }
 
