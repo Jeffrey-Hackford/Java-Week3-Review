@@ -1,0 +1,11 @@
+.center {
+  position: fixed;
+  bottom: 15vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.middle {
+  text-align: center;
+}
