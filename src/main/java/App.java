@@ -35,7 +35,7 @@ public class App{
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/addClient/:id", (request, response) ->{
+    get("/Client/:id/new", (request, response) ->{
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
       model.put("stylist", stylist);
