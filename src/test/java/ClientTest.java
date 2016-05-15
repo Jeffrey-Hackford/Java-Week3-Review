@@ -17,6 +17,11 @@ public class ClientTest {
     assertEquals("Will", newClient.getName());
   }
   @Test
+  public void getStylistId_returnsTrueIfStylistIdIsOne_True() {
+    Client newClient = new Client("Will", 1);
+    assertEquals(1, newClient.getStylistId());
+  }
+  @Test
   public void all_emptyAtFirst() {
     assertEquals(Client.all().size(), 0);
   }

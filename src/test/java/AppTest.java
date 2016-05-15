@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.fluentlenium.core.filter.FilterConstructor.*;
+import org.junit.*;
 
 public class AppTest extends FluentTest {
   public WebDriver webDriver = new HtmlUnitDriver();
@@ -13,6 +14,9 @@ public class AppTest extends FluentTest {
   public WebDriver getDefaultDriver() {
     return webDriver;
   }
+
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
 
   @ClassRule
   public static ServerRule server = new ServerRule();
@@ -31,7 +35,7 @@ public class AppTest extends FluentTest {
   @Test
   public void addedStylistSaves() {
     goTo("http://localhost:4567/");
-    click("a", withText("Add a New Stylist"));
+    click("a", withText("Add A New Stylist"));
     fill("#stylistInput").with("Robert");
     submit(".btn-info");
     assertThat(pageSource()).contains("Robert");
@@ -39,11 +43,11 @@ public class AppTest extends FluentTest {
   @Test
   public void addedClientSavesToStylistList() {
     goTo("http://localhost:4567/");
-    click("a", withText("Add a New Stylist"));
+    click("a", withText("Add A New Stylist"));
     fill("#stylistInput").with("Robert");
     submit(".btn", withText("Add"));
-    click("a", withText("Robert"));
-    fill("#clientInput").with("William");
+    click(".btn", withText("Robert"));
+    fill("#clientName").with("William");
     submit(".btn-info");
     assertThat(pageSource()).contains("William");
   }

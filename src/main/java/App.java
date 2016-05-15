@@ -27,11 +27,8 @@ public class App{
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("stylistInput");
       Stylist newStylist = new Stylist(name);
-
       newStylist.save();
-
       Boolean addedNewStylist = true;
-
       model.put("stylists", Stylist.all());
       model.put("addedNewStylist", addedNewStylist);
       model.put("template", "templates/list-stylists.vtl");
@@ -40,9 +37,7 @@ public class App{
 
     get("/addClient/:id", (request, response) ->{
       Map<String, Object> model = new HashMap<String, Object>();
-
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
-
       model.put("stylist", stylist);
       model.put("template", "templates/add-client.vtl");
       return new ModelAndView(model, layout);
@@ -52,14 +47,10 @@ public class App{
       Map<String, Object> model = new HashMap<String, Object>();
       String clientName = request.queryParams("clientName");
       int stylist_id = Integer.parseInt(request.queryParams("stylist_id"));
-
       Client newClient = new Client(clientName, stylist_id);
       newClient.save();
-
       Stylist stylist = Stylist.find(stylist_id);
-
       Boolean addedNewClient = true;
-
       model.put("addedNewClient", addedNewClient);
       model.put("stylist", stylist);
       model.put("template", "templates/add-client.vtl");
@@ -98,10 +89,8 @@ public class App{
 
     post("/client/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-
       Client client = Client.find(Integer.parseInt(request.params(":id")));
       Stylist stylist = Stylist.find(client.getStylistId());
-
       model.put("client", client);
       model.put("stylist", stylist);
       model.put("template", "templates/client.vtl");
