@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 public class StylistsTest {
 
+  @ClassRule
+  public static ServerRule server = new ServerRule();
+
   @Rule
   public DatabaseRule database = new DatabaseRule();
 

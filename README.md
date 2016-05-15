@@ -12,6 +12,8 @@ _This app will allow users to input Stylist names and assign them clients_
 
 * - Clone from github
 * - clone database from sql file in project folder
+    - run the terminal command "CREATE DATABASE hair_salon;"
+    - then run the command "psql media < hair_salon.sql"
 * - run postgres in terminal
 * - execute 'gradle run' in command line
 * - in a web browser navigate to localhost:4567

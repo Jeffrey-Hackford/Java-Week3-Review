@@ -6,6 +6,9 @@ public class ClientTest {
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
+  @ClassRule
+  public static ServerRule server = new ServerRule();
+
   @Test
   public void client_instantiatesCorrectly() {
     Client newClient = new Client("William", 1);
@@ -20,6 +23,11 @@ public class ClientTest {
   public void getStylistId_returnsTrueIfStylistIdIsOne_True() {
     Client newClient = new Client("Will", 1);
     assertEquals(1, newClient.getStylistId());
+  }
+  @Test
+  public void getId_returnsTrueIfIdIsRetrieved_True() {
+    Client newClient = new Client("Will", 1);
+    assertEquals(0, newClient.getId());
   }
   @Test
   public void all_emptyAtFirst() {
