@@ -49,8 +49,8 @@ public class StylistTest {
   public void allStylistClients_returnsClientListOfStylist_String() {
     Stylist newStylist = new Stylist("Robby");
     newStylist.save();
-    Client newClient = new Client("Billy", 1);
+    Client newClient = new Client("Billy", newStylist.getId());
     newClient.save();
-    assertEquals(newClient, newStylist.allStylistClients());
+    assertEquals(newClient, newStylist.allStylistClients().get(0));
   }
 }
