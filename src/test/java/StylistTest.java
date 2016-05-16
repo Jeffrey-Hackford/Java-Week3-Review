@@ -2,7 +2,7 @@ import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-public class StylistsTest {
+public class StylistTest {
 
   @ClassRule
   public static ServerRule server = new ServerRule();
@@ -43,5 +43,14 @@ public class StylistsTest {
     newStylist.save();
     Stylist foundStylist = Stylist.find(newStylist.getId());
     assertTrue(newStylist.equals(foundStylist));
+  }
+
+  @Test
+  public void allStylistClients_returnsClientListOfStylist_String() {
+    Stylist newStylist = new Stylist("Robby");
+    newStylist.save();
+    Client newClient = new Client("Billy", 1);
+    newClient.save();
+    assertEquals(newClient, newStylist.allStylistClients());
   }
 }
